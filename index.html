@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>motion creatives - Coming Soon</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<!--  -->
+	<div class="simpleslide100">
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg01.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg02.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg03.jpg');"></div>
+	</div>
+
+	<div class="size1 overlay1">
+		<!--  -->
+		<div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
+			<h3 class="l1-txt1 txt-center p-b-25">
+				Coming Soon
+			</h3>
+
+			<p class="m2-txt1 txt-center p-b-48">
+				Our website is under construction, follow us for updates!
+			</p>
+            <ul class="countdown">
+			<div class="flex-w flex-c-m cd100 p-b-33">
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="days">35</span>
+					<span class="s2-txt1">Days</span>
+				</div>
+
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="hours">17</span>
+					<span class="s2-txt1">Hours</span>
+				</div>
+
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="minutes">50</span>
+					<span class="s2-txt1">Minutes</span>
+				</div>
+
+				<div class="flex-col-c-m size2 bor1 m-l-15 m-r-15 m-b-20">
+					<span class="seconds">39</span>
+					<span class="s2-txt1">Seconds</span>
+				</div>
+			</div>
+            </ul>
+			<form name="submit-to-google-sheet" class="w-full flex-w flex-c-m validate-form">
+
+				<div class="wrap-input100 validate-input where1" data-validate = "Valid email is required: example@Gmail.com">
+					<input class="input100 placeholder0 s2-txt2" type="email"  required="required" name="Email" placeholder="Enter Email Address">
+					<span class="focus-input100"></span>
+				</div>
+				
+				
+				<button type="submit" class="flex-c-m size3 s2-txt3 how-btn1 trans-04 where1">
+					Subscribe
+				</button>
+				
+				<span id="msg" class="msg"></span>
+			</form>
+
+		</div>
+	</div>
+
+	<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbyCfQ2Flw88ZZJxssdRv0PIK5WleI4r3O9mtiirOEi0yPr-hSxppoAU30S3ysRB6HcFUQ/exec'
+		const form = document.forms['submit-to-google-sheet']
+		const msg = document.getElementById("msg")
+
+
+
+		form.addEventListener('submit', e => {
+		 e.preventDefault()
+		 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		.then(response => {
+		msg.innerHTML = ""
+		setTimeout(function(){
+		  msg.innerHTML = ""
+		},5000)
+		form.reset()
+	})
+	.catch(error => console.error('Error!', error.message))
+})
+	  </script>
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+     <script src="js/custom-countdown.js"></script>
+     <script src="js/init.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
